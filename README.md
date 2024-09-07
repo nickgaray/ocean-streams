@@ -5,7 +5,7 @@
 
 SensorPods Repository
 
-https://github.com/nickgaray/sensorpods.git
+https://github.com/nickgaray/ocean-streams.git
 
 #### Requirements
 
@@ -16,7 +16,7 @@ For quick download and installation: [OpenLogic OpenJDK Downloads](https://www.o
 #### Synopsis
 The current “node” source code of OpenSensorHub is located at GitHub.  The repositories contain the source code necessary to build a new OSH node, driver, processes, and libraries, but they also make use of the OpenSensorHub open source core and addons.  These open source technologies are referred to by the respective repositories they are employed in as "submodules." Therefore, it is important to note that when using git commands to “checkout” any one of these repositories, you do so with the following command:
  
-         git clone -–recursive https://github.com/nickgaray/sensorpods.git
+         git clone -–recursive https://github.com/nickgaray/ocean-streams.git
 
 ### Building and Deploying the Node
 
@@ -24,11 +24,11 @@ The current “node” source code of OpenSensorHub is located at GitHub.  The r
 
 Building the Node with Jetty deployable web server from the command line is as simple as checking the repository out and building with a simple command
  
-         git clone --recursive https://github.com/nickgaray/sensorpods.git
-         cd sensorpods
+         git clone --recursive https://github.com/nickgaray/ocean-streams.git
+         cd ocean-streams
          ./gradlew build -x test
  
-The resulting build will be contained in /sensorpods/build/distributions/osh-node-*.*.*.zip
+The resulting build will be contained in /ocean-streams/build/distributions/osh-node-*.*.*.zip
  
 Deploying is as simple as copying the zip file to the target destination and unzipping the file.  You can then run ./launch.sh in Linux or ./launch.bat in Windows environment to startup OpenSensorHub.
 
