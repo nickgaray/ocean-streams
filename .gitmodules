@@ -1,0 +1,8 @@
+[submodule "osh-core"]
+	path = osh-core
+	url = https://github.com/opensensorhub/osh-core.git
+	branch = v2
+[submodule "osh-addons"]
+	path = osh-addons
+	url = https://github.com/opensensorhub/osh-addons.git
+	branch = v2
