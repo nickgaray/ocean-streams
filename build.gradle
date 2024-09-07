@@ -42,8 +42,7 @@ distributions {
   main {
     distributionBaseName = 'osh-node'
     contents {
-      from 'dist/scripts/main/launch.bat'
-      from 'dist/scripts/load_trusted_certs.bat'
+      from 'dist/scripts/main/*'
       into ('config') {
         from 'dist/config'
         from 'dist/keystores/osh-keystore.p12'
@@ -65,55 +64,28 @@ distributions {
       }
     }
   }
-  linux {
-    distributionBaseName = 'osh-node_linux'
-    contents {
-      from 'dist/scripts/main/launch.sh'
-      from 'dist/scripts/load_trusted_certs.sh'
-      into ('config') {
-        from 'dist/config'
-        from 'dist/keystores/osh-keystore.p12'
-        into('trusted_certs') {
-          from 'dist/trusted_certs'
-        }
-      }
-      from 'README.md'
-      into('web') {
-        from 'web'
-      }
-      into('lib') {
-        from project.configurations.runtimeClasspath
-      }
-      subprojects.each { p ->
-        into('config/sensorML') {
-          from("${p.projectDir}/sensorML")
-        }
-      }
-    }
-  }
-  linux_osgi {
-    distributionBaseName = 'osh-node_linux_osgi'
-    contents {
-      from 'dist/scripts/osgi/launch.sh'
-      from 'dist/scripts/load_trusted_certs.sh'
-      into ('config') {
-        from 'dist/config'
-        from 'dist/keystores/osh-keystore.p12'
-        into('trusted_certs') {
-          from 'dist/trusted_certs'
-        }
-      }
-      from 'README.md'
-      into('web') {
-        from 'web'
-      }
-      subprojects.each { p ->
-        into('config/sensorML') {
-          from("${p.projectDir}/sensorML")
-        }
-      }
-    }
-  }
+//  linux_osgi {
+//    distributionBaseName = 'osh-node_linux_osgi'
+//    contents {
+//      from 'dist/scripts/osgi/*'
+//      into ('config') {
+//        from 'dist/config'
+//        from 'dist/keystores/osh-keystore.p12'
+//        into('trusted_certs') {
+//          from 'dist/trusted_certs'
+//        }
+//      }
+//      from 'README.md'
+//      into('web') {
+//        from 'web'
+//      }
+//      subprojects.each { p ->
+//        into('config/sensorML') {
+//          from("${p.projectDir}/sensorML")
+//        }
+//      }
+//    }
+//  }
 }
 
 apply from: gradle.oshCoreDir + '/release.gradle'
