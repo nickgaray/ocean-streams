@@ -9,7 +9,7 @@ java -Xmx256m ^
     -Dlogback.configurationFile=./config/logback.xml ^
     -cp "lib/*;userclasses;userlib/*" ^
     -Djavax.net.ssl.keyStore="./config/osh-keystore.p12" ^
-    -Djavax.net.ssl.keyStorePassword="atakatak" ^
+    -Djavax.net.ssl.keyStorePassword="osh-keystore" ^
     -Djavax.net.ssl.trustStore="%~dp0/config/trustStore.jks" ^
     -Djavax.net.ssl.trustStorePassword="changeit" ^
     org.sensorhub.impl.osgi.SensorHubOsgi ./config/config.json db
