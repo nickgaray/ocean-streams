@@ -1,9 +1,6 @@
-## OpenSensorHub Build and Deployment
-[![OpenSensorHub Discord](https://user-images.githubusercontent.com/7288322/34429117-c74dbd12-ecb8-11e7-896d-46369cd0de5b.png)](https://discord.gg/6k3QYRSh9F)
- 
-### Repositories
+![Ocean Streams](/logo/ocean-streams-nobg.png)
 
-SensorPods Repository
+### Repositories
 
 https://github.com/nickgaray/ocean-streams.git
 
