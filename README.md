@@ -1,10 +1,11 @@
 # OCEAN STREAMS
 
-![Ocean Streams](/logo/ocean-streams-nobg.png)   
+![Ocean Streams](/logo/ocean-streams-nobg.png)
 
 ## About Ocean Streams
 
-Ocean Streams in an [OpenSensorHub](http://www.opensensorhub.org) powered project for maritime and oceanographic systems and
+Ocean Streams in an [OpenSensorHub](http://www.opensensorhub.org) powered project for maritime and oceanographic systems
+and
 platforms employing Open Geospatial Consortium's globally recognized Connected Systems standard enabling collecting,
 recording, and processing sensor observations and tasking.
 
@@ -62,6 +63,22 @@ The default URL to access the admin panel is:
     https://<address>/sensorhub/admin
 
 where **address** is the URL or IP address of the system hosting OpenSensorHub
+
+The deployment name can be see in the about section of the admin panel. This string can be changed by editing the
+config.json **AdminUIConfig** section **deploymentName** value.  The default value is shown below.
+
+    {
+        "objClass": "org.sensorhub.ui.AdminUIConfig",
+        "widgetSet": "org.sensorhub.ui.SensorHubWidgetSet",
+        "bundleRepoUrls": [],
+        "customPanels": [],
+        "customForms": [],
+        "id": "5cb05c9c-9123-4fa1-8731-ffaa51489678",
+        "moduleClass": "org.sensorhub.ui.AdminUIModule",
+        "name": "Admin UI",
+        "deploymentName": "Ocean Streams",
+        "autoStart": true
+    },
 
 ## Viewing Log Files
 
