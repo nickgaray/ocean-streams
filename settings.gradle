@@ -18,8 +18,8 @@ gradle.ext.oshCoreDir = "$includeDir/osh-core"
 includeBuild gradle.oshCoreDir
 
 // SensorHub Test - Debugging Module
-include 'sensorhub-test'
-project(':sensorhub-test').projectDir = "$toolsDir/sensorhub-test" as File
+//include 'sensorhub-test'
+//project(':sensorhub-test').projectDir = "$toolsDir/sensorhub-test" as File
 
 
 // osh-storage
@@ -55,7 +55,6 @@ project(':sensorhub-test').projectDir = "$toolsDir/sensorhub-test" as File
 // Project modules
 
 // Include all folders with build.gradle as subprojects
-
 FileTree subprojects = fileTree("$rootDir/sensors").include('**/build.gradle')
 subprojects.files.each { File f ->
     File projectFolder = f.parentFile
@@ -63,5 +62,70 @@ subprojects.files.each { File f ->
         String projectName = ':' + projectFolder.name
         include projectName
         project(projectName).projectDir = projectFolder
+    }
+}
+
+subprojects = fileTree("$includeDir/osh-addons/comm").include('**/build.gradle')
+subprojects.files.each { File f ->
+    File projectFolder = f.parentFile
+    if (projectFolder != rootDir) {
+        String projectName = ':' + projectFolder.name
+        include projectName
+        project(projectName).projectDir = projectFolder
+    }
+}
+
+subprojects = fileTree("$includeDir/osh-addons/persistence").include('**/build.gradle')
+subprojects.files.each { File f ->
+    File projectFolder = f.parentFile
+    if (projectFolder != rootDir) {
+        String projectName = ':' + projectFolder.name
+        include projectName
+        project(projectName).projectDir = projectFolder
+    }
+}
+
+subprojects = fileTree("$includeDir/osh-addons/processing").include('**/build.gradle')
+subprojects.files.each { File f ->
+    File projectFolder = f.parentFile
+    if (projectFolder != rootDir) {
+        String projectName = ':' + projectFolder.name
+        include projectName
+        project(projectName).projectDir = projectFolder
+    }
+}
+
+subprojects = fileTree("$includeDir/osh-addons/security").include('**/build.gradle')
+subprojects.files.each { File f ->
+    File projectFolder = f.parentFile
+    if (projectFolder != rootDir) {
+        String projectName = ':' + projectFolder.name
+        include projectName
+        project(projectName).projectDir = projectFolder
+    }
+}
+
+subprojects = fileTree("$includeDir/osh-addons/sensors").include('**/build.gradle')
+subprojects.files.each { File f ->
+    File projectFolder = f.parentFile
+    if (projectFolder != rootDir && !f.absolutePath.contains("sensorhub-driver-isa") && !f.absolutePath.contains("sensorhub-driver-usgswater")
+            && !f.absolutePath.contains("sensorhub-storage-ndbc")) {
+        if (projectFolder != rootDir) {
+            String projectName = ':' + projectFolder.name
+            include projectName
+            project(projectName).projectDir = projectFolder
+        }
+    }
+}
+
+subprojects = fileTree("$includeDir/osh-addons/services").include('**/build.gradle')
+subprojects.files.each { File f ->
+    File projectFolder = f.parentFile
+    if (projectFolder != rootDir && !f.absolutePath.contains("sensorhub-service-sensorthings")) {
+        if (projectFolder != rootDir) {
+            String projectName = ':' + projectFolder.name
+            include projectName
+            project(projectName).projectDir = projectFolder
+        }
     }
 }

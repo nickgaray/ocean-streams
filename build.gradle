@@ -14,10 +14,12 @@ allprojects {
 
 repositories {
   repositories {
-    jcenter()
     mavenCentral()
     maven {
-      url "https://github.com/rosjava/rosjava_mvn_repo/raw/master"
+      url "https://raw.githubusercontent.com/rosjava/rosjava_mvn_repo/master/"
+    }
+    maven {
+      url "https://artifacts.camunda.com/artifactory/public/"
     }
   }
 }
@@ -70,7 +72,8 @@ apply from: gradle.oshCoreDir + '/release.gradle'
 
 tasks.register("harvestBundles", Copy) {
   destinationDir = layout.buildDirectory.dir("bundles").get().asFile
-  from project(':sensorhub-driver-template').osgi.outputs
+//  from project(':sensorhub-driver-template').osgi.outputs
+  subprojects.forEach {pr -> { from pr.osgi.outputs }}
 }
 
 tasks.register("genOSGiIndex", Index) {
