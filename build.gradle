@@ -86,11 +86,11 @@ tasks.register("genOSGiIndex", Index) {
 }
 
 tasks.register("bundlesDistZip", Zip) {
+  destinationDirectory = file(layout.buildDirectory.dir("distributions"))
   from layout.buildDirectory.dir("bundles").get().asFile
   include '*'
   include '*/*' //to include contents of a folder present inside bundles directory
   archiveName 'osgi-bundles-' + project.version + '.zip'
-  destinationDir(layout.buildDirectory.dir("distributions").get().asFile)
 }
 
 genOSGiIndex.dependsOn(harvestBundles)
