@@ -109,7 +109,7 @@ subprojects = fileTree("$includeDir/osh-addons/sensors").include('**/build.gradl
 subprojects.files.each { File f ->
     File projectFolder = f.parentFile
     if (projectFolder != rootDir && !f.absolutePath.contains("sensorhub-driver-isa") && !f.absolutePath.contains("sensorhub-driver-usgswater")
-            && !f.absolutePath.contains("sensorhub-storage-ndbc")) {
+            && !f.absolutePath.contains("sensorhub-storage-usgswater") && !f.absolutePath.contains("sensorhub-storage-ndbc")) {
         if (projectFolder != rootDir) {
             String projectName = ':' + projectFolder.name
             include projectName
